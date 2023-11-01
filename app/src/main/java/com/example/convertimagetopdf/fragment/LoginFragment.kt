@@ -1,24 +1,31 @@
 package com.example.convertimagetopdf.fragment
 
 import android.view.View
-import androidx.lifecycle.ViewModel
+import androidx.fragment.app.viewModels
+import com.example.convertimagetopdf.R
 import com.example.convertimagetopdf.base.BaseFragment
 import com.example.convertimagetopdf.databinding.LoginFragmentBinding
-
+import com.example.convertimagetopdf.navigation.AppNavigation
+import com.example.convertimagetopdf.share.UserPreference
+import com.example.convertimagetopdf.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<LoginFragmentBinding>() {
-    override fun getVM(): ViewModel {
-        TODO("Not yet implemented")
-    }
+    @Inject
+    lateinit var appNavigation: AppNavigation
+    @Inject
+    lateinit var sharedPreferences: UserPreference
+
+    private val viewModel: LoginViewModel by viewModels()
+    override fun getVM(): LoginViewModel = viewModel
 
     override fun initViews() {
-        TODO("Not yet implemented")
+
+
     }
 
-    override fun initBinding(mRootView: View): LoginFragmentBinding {
-        TODO("Not yet implemented")
-    }
+    override fun initBinding(mRootView: View): LoginFragmentBinding = LoginFragmentBinding.bind(mRootView)
 
-    override fun getLayoutId(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getLayoutId(): Int = R.layout.login_fragment
 }

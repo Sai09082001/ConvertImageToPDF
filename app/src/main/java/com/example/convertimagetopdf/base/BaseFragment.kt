@@ -15,6 +15,7 @@ abstract class BaseFragment<K : ViewDataBinding> : Fragment() {
     var mData: Any? = null
 
     private var _binding: K? = null
+    protected val binding: K get() = _binding!!
 
     protected abstract fun getVM(): ViewModel
 

@@ -45,7 +45,7 @@ abstract class BaseNavigatorImpl : BaseNavigator {
             return
         }
         val navGraph = navController?.graph
-        navGraph?.startDestination = id
+        navGraph?.setStartDestination(id)
         if (navGraph != null) {
             navController?.graph = navGraph
         }
